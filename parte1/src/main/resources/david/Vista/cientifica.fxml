@@ -258,7 +258,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <Label fx:id="L_resultado" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="84.0" prefHeight="36.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="0">
+        <Label fx:id="L_resultado" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="84.0" prefHeight="36.0" prefWidth="324.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="o">
             <font>
                 <Font name="System Bold" size="25.0" />
             </font>

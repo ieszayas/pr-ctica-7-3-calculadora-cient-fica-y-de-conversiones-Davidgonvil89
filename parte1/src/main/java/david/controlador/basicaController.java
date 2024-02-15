@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,7 +33,10 @@ public class basicaController {
 
     @FXML
     public void pulsarBoton(ActionEvent event) {
-        borrarPantalla();
+        String inicio = L_resultado.getText();
+        if (inicio.equals("o")) {
+            borrarPantalla();
+        }
         if (flagResultado) {
             borrarPantalla();
         }
@@ -207,6 +211,49 @@ public class basicaController {
             myStage.close();
         } catch (IOException ex) {
             System.out.println("Error al cargar la pantalla científica: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    public void escribir(KeyEvent event) {
+        if (flagResultado) {
+            borrarPantalla();
+        }
+        switch (event.getCode()) {
+            case DELETE:
+                borrarPantalla();
+                break;
+            case DECIMAL:
+                ponerDecimal();
+                break;
+            case ENTER:
+                igual(new ActionEvent());
+                break;
+            case ADD:
+                operar("+");
+                break;
+            case MINUS:
+                operar("-");
+                break;
+            case MULTIPLY:
+                operar("*");
+                break;
+            case DIVIDE:
+                operar("/");
+                break;
+            default:
+                String entrada = event.getText();
+                if (esNumero(entrada)) {
+                    mostrarPorPantalla(entrada, false);
+                }
+        }
+    }
+    private boolean esNumero(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }

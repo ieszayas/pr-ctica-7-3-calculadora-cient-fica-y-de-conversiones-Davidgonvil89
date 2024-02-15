@@ -36,7 +36,10 @@ public class HelloController {
 
     @FXML
     public void pulsarBoton(ActionEvent event) {
-        borrarPantalla();
+        String inicio = L_resultado.getText();
+        if (inicio.equals("o")) {
+            borrarPantalla();
+        }
         if (flagResultado) {
             borrarPantalla();
         }

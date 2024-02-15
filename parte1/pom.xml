@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>david</groupId>
-  <artifactId>practica_7_2</artifactId>
+  <artifactId>practica_7_3</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>practica_7_2</name>
+  <name>practica_7_3</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -76,7 +76,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>david.practica_7_2/david.controlador.Main</mainClass>
+              <mainClass>david.practica_7_3/david.controlador.Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>

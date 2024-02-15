@@ -2,7 +2,7 @@
   <artifact type="jar" name="practica_7_2:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/practica_7_2_jar</output-path>
     <root id="archive" name="practica_7_2.jar">
-      <element id="module-output" name="practica_7_2" />
+      <element id="module-output" name="practica_7_3" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21/javafx-base-21-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/21/javafx-controls-21.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21/javafx-base-21.jar" path-in-jar="/" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="265.0" styleClass="fondo_background" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="david.controlador.basicaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#escribir" prefHeight="370.0" prefWidth="265.0" styleClass="fondo_background" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="david.controlador.basicaController">
     <children>
         <MenuBar prefHeight="25.0" prefWidth="265.0">
             <menus>
@@ -226,7 +226,7 @@
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-        <Label fx:id="L_resultado" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="3.0" layoutY="84.0" prefHeight="36.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="0">
+        <Label fx:id="L_resultado" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="3.0" layoutY="84.0" prefHeight="36.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="o">
             <font>
                 <Font name="System Bold" size="25.0" />
             </font>
