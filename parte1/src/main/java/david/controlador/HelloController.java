@@ -1,9 +1,17 @@
 package david.controlador;
 
-import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HelloController {
 
@@ -15,20 +23,23 @@ public class HelloController {
     private String memoria_aux = "";
     private String memoria_prin = "";
     private String num1 = "";
+    private final String num2 = "";
     private String operacion;
 
     private boolean flagResultado = false;
     private boolean flagDecimal = false;
     private boolean flagOpInicial = true;
     private boolean flagOperacion = false;
+    private boolean flagExponencial = false;
+
 
 
     @FXML
     public void pulsarBoton(ActionEvent event) {
+        borrarPantalla();
         if (flagResultado) {
             borrarPantalla();
         }
-
         String valor = ((Button) event.getSource()).getText();
         mostrarPorPantalla(valor, false);
     }
@@ -40,14 +51,25 @@ public class HelloController {
 
     @FXML
     public void igual(ActionEvent actionEvent) {
-        num1 = L_resultado.getText();
-        if (num1.equals("")) {
-            num1 = "0";
+        int aux = Integer.parseInt(L_resultado.getText());
+        if (flagExponencial) {
+            String res = exponencial(L_resultado.getText());
+            borrarPantalla();
+            L_operacion.setText(memoria_aux + " ^ " + aux);
+            mostrarPorPantalla(res, true);
+            flagExponencial = false;
+        } else {
+            num1 = L_resultado.getText();
+            if (num1.equals("")) {
+                num1 = "0";
+            }
+            borrarPantalla();
+            mostrarPorPantalla(calculo(num1, operacion), true);
+            mostrarOperacion(num1, false);
+            operacion = null;
         }
-        borrarPantalla();
-        mostrarPorPantalla(calculo(num1, operacion), true);
-        mostrarOperacion(num1, false);
     }
+
 
     @FXML
     public void operacion(ActionEvent event) {
@@ -174,7 +196,66 @@ public class HelloController {
     }
 
     @FXML
-    public void operacion_trigo(ActionEvent actionEvent) {
+    public void operacion_trigo(ActionEvent event) {
+        String numero = L_resultado.getText();
+        String operacion = ((Button) event.getSource()).getText();
+        borrarPantalla();
+        Double num = Double.valueOf(numero);
+        Double resultado = 0.0;
+
+        // La clase math tiene los metodos seno, coseno y tangente.
+        switch (operacion) {
+            case "sen":
+                resultado = Math.sin(num);
+                break;
+            case "cos":
+                resultado = Math.cos(num);
+                break;
+            case "tan":
+                resultado = Math.tan(num);
+                break;
+        }
+        mostrarPorPantalla(memoria_aux = String.valueOf(resultado), true);
+    }
+
+    @FXML
+    public void operacion_expo(ActionEvent actionEvent) {
+        flagExponencial = true;
+        memoria_aux = L_resultado.getText();
+        borrarPantalla();
+        L_operacion.setText(memoria_aux + " ^");
+    }
+
+    private String exponencial(String numero) {
+        Double num1 = Double.valueOf(memoria_aux);
+        Double num2 = Double.valueOf(numero);
+
+        return String.valueOf(Math.pow(num1, num2));
+    }
+
+    @FXML
+    public void pantallaBasica() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/david/Vista/basica.fxml"));
+            Parent root = loader.load();
+            basicaController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage basicaStage = new Stage();
+
+            basicaStage.setScene(scene);
+            basicaStage.show();
+            basicaStage.setResizable(false);
+            String path = "/images/icon_cal_4.png";
+            Image icon = new Image(getClass().getResourceAsStream(path));
+            basicaStage.getIcons().add(icon);
+            basicaStage.setTitle("Calculadora Cientifica, DGV!");
+
+            // Cierra la ventana actual
+            Stage myStage = (Stage) L_resultado.getScene().getWindow();
+            myStage.close();
+        } catch (IOException ex) {
+            System.out.println("Error al cargar la pantalla basica: " + ex.getMessage());
+        }
     }
 }
 

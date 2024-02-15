@@ -2,6 +2,7 @@ package david.controlador;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -9,18 +10,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-
-
+private static Scene scene;
+private static Image icon;
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/david/Vista/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 265, 340);
+    public void start(Stage stage_e) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/david/Vista/basica.fxml"));
+        scene = new Scene(fxmlLoader.load(), 265, 370);
         String path = "/images/icon_cal_4.png";
-        Image icon = new Image(getClass().getResourceAsStream(path));
-        stage.getIcons().add(icon);
-        stage.setTitle("Calculadora, DGV!");
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+        icon = new Image(getClass().getResourceAsStream(path));
+        stage_e.getIcons().add(icon);
+        stage_e.setTitle("Calculadora, DGV!");
+        stage_e.setScene(scene);
+        stage_e.show();
+        stage_e.setResizable(false);
     }
+
 }
