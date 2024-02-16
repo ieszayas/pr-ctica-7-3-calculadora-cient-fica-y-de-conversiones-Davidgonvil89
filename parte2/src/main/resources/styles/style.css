@@ -1,0 +1,56 @@
+.fondo_background{
+    -fx-background-color: black;
+}
+
+.numeros{
+    -fx-background-color: white;
+}
+
+.signos{
+    -fx-background-color: #0099ff;
+}
+
+.memory{
+    -fx-background-color: #42f557;
+}
+
+.igual{
+    -fx-background-color: #01d9ff;
+}
+
+.borrar{
+    -fx-background-color: #ff0000;
+}
+
+.signo_aux{
+    -fx-background-color: #ff9d00;
+}
+
+.numeros, .signos, .signo_aux, .borrar, .igual, .memory, .pantalla, .signos_trigo {
+    -fx-background-radius: 20;
+    -fx-font-family: "arial";
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+.pantalla{
+    -fx-background-color: white;
+}
+
+.button:pressed {
+    -fx-background-color: lightblue;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.signos_trigo{
+    -fx-background-color: grey;
+}
+
+.cbox{
+    -fx-background-radius: 20;
+    -fx-font-family: "arial";
+    -fx-background-color: white;
+
+ }
