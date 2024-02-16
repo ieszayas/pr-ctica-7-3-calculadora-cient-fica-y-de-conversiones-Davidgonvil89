@@ -22,12 +22,12 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edición">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaConversion" text="Conversor" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ayuda">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaInfo" text="Info" />
                     </items>
                 </Menu>
             </menus>

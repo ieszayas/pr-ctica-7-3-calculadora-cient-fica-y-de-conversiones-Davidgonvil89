@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -18,7 +19,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Modo">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Basica" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaBasica" text="Basica" />
                         <MenuItem mnemonicParsing="false" onAction="#pantallaCientifica" text="Cientifica" />
                     </items>
                 </Menu>
@@ -29,7 +30,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ayuda">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Info" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaInfo" text="Info" />
                     </items>
                 </Menu>
             </menus>
@@ -62,14 +63,11 @@
                                 <Font name="Arial Bold" size="20.0" />
                             </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpiarTodo" prefHeight="45.0" prefWidth="62.0" styleClass="borrar" stylesheets="@../../styles/style.css" text="CE">
-                            <font>
-                                <Font name="Arial Bold" size="20.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets bottom="2.0" left="2.0" />
-                            </HBox.margin>
-                        </Button>
+                  <ProgressIndicator fx:id="progreso" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: black;" visible="false">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </ProgressIndicator>
                     </children>
                 </HBox>
                 <HBox prefHeight="45.0" prefWidth="260.0">
@@ -98,7 +96,7 @@
                                 <Font name="Arial Bold" size="20.0" />
                             </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" opacity="0.0" prefHeight="45.0" prefWidth="62.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpiarTodo" prefHeight="45.0" prefWidth="62.0" styleClass="borrar" stylesheets="@../../styles/style.css" text="CE">
                             <font>
                                 <Font name="Arial Bold" size="20.0" />
                             </font>
@@ -134,7 +132,7 @@
                                 <Font name="Arial Bold" size="20.0" />
                             </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" opacity="0.0" prefHeight="45.0" prefWidth="62.0">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpiar" prefHeight="45.0" prefWidth="62.0" styleClass="borrar" stylesheets="@../../styles/style.css" text="C">
                             <font>
                                 <Font name="Arial Bold" size="20.0" />
                             </font>
@@ -189,21 +187,21 @@
                 <Font name="System Bold" size="25.0" />
             </font>
         </Label>
-        <HBox layoutX="10.0" layoutY="123.0" prefHeight="36.0" prefWidth="246.0">
+        <HBox layoutX="3.0" layoutY="123.0" prefHeight="36.0" prefWidth="260.0">
             <children>
-                <ComboBox onAction="#seleccionConversor" prefHeight="30.0" prefWidth="95.0" styleClass="cbox">
+                <ComboBox fx:id="cmSeleccion" onAction="#seleccionConversor" prefHeight="30.0" prefWidth="97.0" styleClass="cbox">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
                 </ComboBox>
-                <ComboBox onAction="#cbUno" prefHeight="30.0" prefWidth="62.0" styleClass="cbox">
+                <ComboBox fx:id="cmOrigen" prefHeight="30.0" prefWidth="75.0" styleClass="cbox">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="4.0" />
                     </HBox.margin>
                 </ComboBox>
-                <ComboBox onAction="#cbDos" prefHeight="30.0" prefWidth="62.0" styleClass="cbox">
+                <ComboBox fx:id="cmDestino" prefHeight="30.0" prefWidth="75.0" styleClass="cbox">
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="4.0" />
                     </HBox.margin>
                 </ComboBox>
             </children>

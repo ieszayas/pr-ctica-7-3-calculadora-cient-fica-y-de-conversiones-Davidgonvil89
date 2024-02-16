@@ -192,7 +192,7 @@ public class basicaController {
 
             Parent root = loader.load();
 
-            HelloController controller = loader.getController();
+            cientificaController controller = loader.getController();
 
             //Scene scene = new Scene(root);
             Scene scene = new Scene(root, 330, 370);
@@ -254,6 +254,60 @@ public class basicaController {
             return true;
         } catch (NumberFormatException e) {
             return false;
+        }
+    }
+
+    @FXML
+    public void pantallaConversion(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/david/Vista/conversor.fxml"));
+
+            Parent root = loader.load();
+
+            conversorController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage conversorStage = new Stage();
+
+            conversorStage.setScene(scene);
+            conversorStage.show();
+            conversorStage.setResizable(false);
+            String path = "/images/icon_cal_4.png";
+            Image icon = new Image(getClass().getResourceAsStream(path));
+            conversorStage.getIcons().add(icon);
+            conversorStage.setTitle("Conversor, DGV!");
+
+            // Cierra la ventana actual
+            Stage myStage = (Stage) L_resultado.getScene().getWindow();
+            myStage.close();
+        } catch (IOException ex) {
+            System.out.println("Error al cargar la pantalla de Conversion: " + ex.getMessage());
+        }
+
+    }
+
+    @FXML
+    public void pantallaInfo(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/david/Vista/info.fxml"));
+
+            Parent root = loader.load();
+
+            infoController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage infoStage = new Stage();
+
+            infoStage.setScene(scene);
+            infoStage.show();
+            infoStage.setResizable(false);
+            String path = "/images/icon_cal_4.png";
+            Image icon = new Image(getClass().getResourceAsStream(path));
+            infoStage.getIcons().add(icon);
+            infoStage.setTitle("Información, DGV!");
+
+        } catch (IOException ex) {
+            System.out.println("Error al cargar la pantalla de Informacion: " + ex.getMessage());
         }
     }
 }
