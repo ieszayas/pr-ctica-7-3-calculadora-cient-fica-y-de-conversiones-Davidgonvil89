@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -17,17 +19,38 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Modo">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#pantallaCientifica" text="Cientifica" />
+                        <MenuItem fx:id="itemCientifica" mnemonicParsing="false" onAction="#pantallaCientifica" text="Cientifica">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icon_cal_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edición">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#pantallaConversion" text="Conversor" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaConversion" text="Conversor">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icon_canversor.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Ayuda">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#pantallaInfo" text="Info" />
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaInfo" text="Info">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/icon_info.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
                     </items>
                 </Menu>
             </menus>

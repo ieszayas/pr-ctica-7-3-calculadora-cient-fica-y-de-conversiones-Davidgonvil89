@@ -27,7 +27,7 @@ import java.util.concurrent.Executors;
 public class conversorController implements Initializable {
 
     private final ObservableList<String> SisConversion = FXCollections.observableArrayList("Moneda", "Longitud", "Tiempo");
-    private final ObservableList<String> Monedas = FXCollections.observableArrayList("EUR", "USD", "GBP", "YPJ");
+    private final ObservableList<String> Monedas = FXCollections.observableArrayList("EUR", "USD", "GBP", "YPJ", "Mi Moneda");
     private final ObservableList<String> Longitud = FXCollections.observableArrayList("mm", "dm", "cm", "m", "km");
     private final ObservableList<String> Tiempo = FXCollections.observableArrayList("milisegundos", "segundos", "minutos", "horas", "dias", "semanas", "años");
     @javafx.fxml.FXML
@@ -45,6 +45,7 @@ public class conversorController implements Initializable {
     private String seleccion = "";
     @javafx.fxml.FXML
     private ProgressIndicator progreso;
+
 
 
     @Override
@@ -115,7 +116,6 @@ public class conversorController implements Initializable {
 
     @javafx.fxml.FXML
     public void seleccionConversor(ActionEvent actionEvent) {
-        //Falta corregir que no este vacio el comboBox
         this.seleccion = cmSeleccion.getValue().toString();
         if (!seleccion.isEmpty()) {
             switch (seleccion) {

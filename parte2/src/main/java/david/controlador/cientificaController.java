@@ -22,7 +22,7 @@ public class cientificaController {
     private String memoria_aux = "";
     private String memoria_prin = "";
     private String num1 = "";
-    private final String num2 = "";
+    //private String num2 = "";
     private String operacion;
 
     private boolean flagResultado = false;
@@ -250,7 +250,7 @@ public class cientificaController {
             String path = "/images/icon_cal_4.png";
             Image icon = new Image(getClass().getResourceAsStream(path));
             basicaStage.getIcons().add(icon);
-            basicaStage.setTitle("Calculadora Cientifica, DGV!");
+            basicaStage.setTitle("Calculadora Basica, DGV!");
 
             // Cierra la ventana actual
             Stage myStage = (Stage) L_resultado.getScene().getWindow();

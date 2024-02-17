@@ -31,6 +31,7 @@
     -fx-font-family: "arial";
     -fx-font-size: 20;
     -fx-font-weight: bold;
+    -fx-text-fill: black;
 }
 .pantalla{
     -fx-background-color: white;
@@ -52,5 +53,4 @@
     -fx-background-radius: 20;
     -fx-font-family: "arial";
     -fx-background-color: white;
-
- }
+}
