@@ -1,47 +1,21 @@
 package Modelo;
 
+import javafx.stage.Stage;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import david.controlador.modalMonedaController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import org.json.JSONObject;
-
 public class Operaciones {
 
-    private HashMap<String, Double> unidadesLongitud;
     HashMap<String, Double> unidadesTiempo;
-    private String memoria = "0";
-    private String memoriaExp;
-    Operaciones modelo;
+    private final HashMap<String, Double> unidadesLongitud;
     private Stage stagePrincipal;
 
 
-    public void setStagePrincipal(Stage stage) {
-        this.stagePrincipal = stage;
-    }
-
-    private void cargarVentanaModal(String fxmlPath, String title) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setTitle(title);
-        stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(stagePrincipal);
-        stage.setScene(scene);
-
-        stage.showAndWait();
-    }
     public Operaciones() {
         unidadesLongitud = new HashMap<>();
         unidadesLongitud.put("mm", 0.001);
@@ -60,6 +34,10 @@ public class Operaciones {
         unidadesTiempo.put("semanas", 604800000.0);
         unidadesTiempo.put("años", 31557600000.0);
 
+    }
+
+    public void setStagePrincipal(Stage stage) {
+        this.stagePrincipal = stage;
     }
 
     public String conversion(String modo, String valor, String origen, String destino) {
@@ -81,23 +59,6 @@ public class Operaciones {
     }
 
     private String calcularDivisa(String valor, String origen, String destino) {
-
-        if(valor.equals("Moneda")){
-            if (origen.equals("Mi Moneda") || (destino.equals("Mi Moneda"))){
-                try {
-                    cargarVentanaModal("/david/Vista/modalMoneda.fxml", "Ventana Modal");
-                } catch (IOException e) {
-                    System.out.println("Error al cargar la ventana modal: " + e.getMessage());
-                    e.printStackTrace();
-                }
-            }else{
-                String json = requestAPI(origen);
-                Double valorDestino = divisa(json, destino);
-                Double valorACalcular = Double.valueOf(valor);
-
-                return String.valueOf(valorACalcular * valorDestino);
-            }
-        }
 
         String json = requestAPI(origen);
         Double valorDestino = divisa(json, destino);

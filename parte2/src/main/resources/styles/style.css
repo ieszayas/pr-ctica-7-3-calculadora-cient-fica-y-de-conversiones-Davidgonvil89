@@ -1,3 +1,4 @@
+/* Estilo para modo Oscuro */
 .fondo_background{
     -fx-background-color: black;
 }
@@ -54,3 +55,4 @@
     -fx-font-family: "arial";
     -fx-background-color: white;
 }
+

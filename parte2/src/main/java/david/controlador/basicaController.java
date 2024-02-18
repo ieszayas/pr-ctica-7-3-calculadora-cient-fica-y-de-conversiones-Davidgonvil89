@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -36,6 +35,7 @@ public class basicaController implements Initializable {
     private boolean flagOperacion = false;
     @FXML
     private MenuItem itemCientifica;
+    private final boolean flagTema = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -259,6 +259,7 @@ public class basicaController implements Initializable {
                 }
         }
     }
+
     private boolean esNumero(String str) {
         try {
             Double.parseDouble(str);
@@ -322,6 +323,29 @@ public class basicaController implements Initializable {
         }
     }
 
+    @FXML
+    public void cambiarModo(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/david/Vista/basicaClara.fxml"));
+            Parent root = loader.load();
+            basicaClaraController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage basicaStage = new Stage();
 
+            basicaStage.setScene(scene);
+            basicaStage.show();
+            basicaStage.setResizable(false);
+            String path = "/images/icon_cal_4.png";
+            Image icon = new Image(getClass().getResourceAsStream(path));
+            basicaStage.getIcons().add(icon);
+            basicaStage.setTitle("Calculadora Basica, DGV!");
+
+            // Cierra la ventana actual
+            Stage myStage = (Stage) L_resultado.getScene().getWindow();
+            myStage.close();
+        } catch (IOException ex) {
+            System.out.println("Error al cargar la pantalla basica: " + ex.getMessage());
+        }
+    }
 }
 

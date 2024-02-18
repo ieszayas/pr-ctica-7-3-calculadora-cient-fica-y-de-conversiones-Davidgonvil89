@@ -6,9 +6,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
-public class infoController{
-private Image imagen1;
-private Image imagen2;
+public class infoController {
+    private Image imagen1;
+    private Image imagen2;
     @javafx.fxml.FXML
     private Button bnSalir;
 

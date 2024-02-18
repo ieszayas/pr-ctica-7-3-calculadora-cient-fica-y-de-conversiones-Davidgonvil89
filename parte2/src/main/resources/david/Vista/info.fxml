@@ -6,38 +6,43 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="296.0" prefWidth="223.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="david.controlador.infoController">
-   <children>
-      <Button fx:id="bnSalir" layoutX="77.0" layoutY="232.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="42.0" prefWidth="69.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Salir">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="86.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/icons8-persona-neutral-tipo-de-piel-1-2-30.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="18.0" layoutY="69.0" text="Proyecto Realizado por:" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="84.0" layoutY="145.0" text="David " textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="80.0" fitWidth="64.0" layoutX="80.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../images/icons8-calculadora-de-manzana-100.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="38.0" layoutY="182.0" text="Gonzalez Vilches" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="296.0" prefWidth="223.0"
+            style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21"
+            fx:controller="david.controlador.infoController">
+    <children>
+        <Button fx:id="bnSalir" layoutX="77.0" layoutY="232.0" mnemonicParsing="false" onAction="#cerrar"
+                prefHeight="42.0" prefWidth="69.0" style="-fx-background-color: white; -fx-background-radius: 10;"
+                text="Salir">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+        </Button>
+        <ImageView fitHeight="52.0" fitWidth="51.0" layoutX="86.0" layoutY="93.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../images/icons8-persona-neutral-tipo-de-piel-1-2-30.png"/>
+            </image>
+        </ImageView>
+        <Label layoutX="18.0" layoutY="69.0" text="Proyecto Realizado por:" textFill="WHITE">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="84.0" layoutY="145.0" text="David " textFill="WHITE">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="80.0" fitWidth="64.0" layoutX="80.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../images/icons8-calculadora-de-manzana-100.png"/>
+            </image>
+        </ImageView>
+        <Label layoutX="38.0" layoutY="182.0" text="Gonzalez Vilches" textFill="WHITE">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

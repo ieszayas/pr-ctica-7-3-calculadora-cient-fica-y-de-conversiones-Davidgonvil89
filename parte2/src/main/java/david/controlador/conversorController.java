@@ -1,12 +1,10 @@
 package david.controlador;
 
 import Modelo.Operaciones;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -16,6 +14,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,9 +28,10 @@ import java.util.concurrent.Executors;
 public class conversorController implements Initializable {
 
     private final ObservableList<String> SisConversion = FXCollections.observableArrayList("Moneda", "Longitud", "Tiempo");
-    private final ObservableList<String> Monedas = FXCollections.observableArrayList("EUR", "USD", "GBP", "YPJ", "Mi Moneda");
+    private final ObservableList<String> Monedas = FXCollections.observableArrayList("EUR", "USD", "GBP", "YPJ");
     private final ObservableList<String> Longitud = FXCollections.observableArrayList("mm", "dm", "cm", "m", "km");
     private final ObservableList<String> Tiempo = FXCollections.observableArrayList("milisegundos", "segundos", "minutos", "horas", "dias", "semanas", "años");
+    String memoria_aux = "0";
     @javafx.fxml.FXML
     private Label L_resultado;
     @javafx.fxml.FXML
@@ -38,41 +40,68 @@ public class conversorController implements Initializable {
     private ComboBox cmSeleccion;
     @javafx.fxml.FXML
     private ComboBox cmDestino;
-    String memoria_aux = "0";
     private Operaciones operaciones;
     private boolean flagResultado = false;
     private boolean flagDecimal = false;
     private String seleccion = "";
     @javafx.fxml.FXML
     private ProgressIndicator progreso;
-
+    private modalMonedaController mc;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cmSeleccion.setValue("Moneda");
         cmSeleccion.setItems(SisConversion);
-
         cmOrigen.setItems(Monedas);
         cmOrigen.setValue("EUR");
         cmDestino.setItems(Monedas);
         cmDestino.setValue("USD");
         operaciones = new Operaciones();
+
     }
 
 
     @javafx.fxml.FXML
     public void limpiarTodo(ActionEvent actionEvent) {
         borrarPantalla();
-        memoria_aux ="0";
+        memoria_aux = "0";
 
         flagDecimal = false;
     }
 
     @javafx.fxml.FXML
-    public void escribir(Event event) {
+    public void escribir(KeyEvent event) {
+        if (flagResultado) {
+            borrarPantalla();
+        }
+        switch (event.getCode()) {
+            case DELETE:
+                borrarPantalla();
+                break;
+            case DECIMAL:
+                ponerDecimal(null);
+                break;
+            case ENTER:
+                igual(new ActionEvent());
+                break;
+
+            default:
+                String entrada = event.getText();
+                if (esNumero(entrada)) {
+                    mostrarPorPantalla(entrada, false);
+                }
+        }
     }
 
+    private boolean esNumero(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     @javafx.fxml.FXML
     public void pulsarBoton(ActionEvent event) {
@@ -143,7 +172,7 @@ public class conversorController implements Initializable {
 
     @javafx.fxml.FXML
     public void ponerDecimal(ActionEvent actionEvent) {
-        if (flagDecimal == false) {
+        if (!flagDecimal) {
             if (L_resultado.getText().isEmpty()) {
                 mostrarPorPantalla("0.", false);
             } else {
@@ -247,4 +276,24 @@ public class conversorController implements Initializable {
             System.out.println("Error al cargar la pantalla de Informacion: " + ex.getMessage());
         }
     }
+
+    @javafx.fxml.FXML
+    public void elegirMoneda(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/david/Vista/modalMoneda.fxml"));
+            Pane root = loader.load();
+            this.mc = loader.getController();
+            Stage stage = new Stage();
+            stage.setTitle("Ventana Modal");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+            Monedas.clear();
+            Monedas.addAll(modalMonedaController.getDatos());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
 }

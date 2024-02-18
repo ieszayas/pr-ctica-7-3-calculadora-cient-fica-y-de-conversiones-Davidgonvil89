@@ -1,33 +1,61 @@
 package david.controlador;
 
-import Modelo.Operaciones;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.stage.Stage;
 
-public class modalMonedaController {
-    @javafx.fxml.FXML
-    private TextArea valor_mi_moneda;
-    @javafx.fxml.FXML
-    private Button btn_salir;
-    @javafx.fxml.FXML
-    private Button btn_aceptar;
-    Operaciones modelo;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    public void setModelo (Operaciones modelo) {
-        this.modelo = modelo;
+public class modalMonedaController implements Initializable {
+
+    private static ObservableList<String> lista;
+    @FXML
+    private CheckBox ch_dol;
+    @FXML
+    private Button bt_ok;
+    @FXML
+    private CheckBox ch_lib;
+    @FXML
+    private CheckBox ch_eur;
+    @FXML
+    private CheckBox ch_yen;
+
+    public static ObservableList<String> getDatos() {
+        return lista;
     }
-    public String obtenerNumeroDesdeTextArea() {
-        return valor_mi_moneda.getText();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
-    @javafx.fxml.FXML
-    public void cerrar(ActionEvent actionEvent) {
-        Stage stage = (Stage) btn_salir.getScene().getWindow();
+
+    @FXML
+    public void ok(ActionEvent actionEvent) {
+        lista = FXCollections.observableArrayList();
+
+        if (ch_eur.isSelected()) {
+            lista.add("EUR");
+        }
+        if (ch_dol.isSelected()) {
+            lista.add("USD");
+        }
+        if (ch_lib.isSelected()) {
+            lista.add("GBP");
+        }
+        if (ch_yen.isSelected()) {
+            lista.add("YJP");
+        }
+        // Obtener el Stage de la ventana actual
+        Stage stage = (Stage) bt_ok.getScene().getWindow();
         stage.close();
     }
 
-    @javafx.fxml.FXML
-    public void aceptar(ActionEvent actionEvent) {
-    }
+
 }

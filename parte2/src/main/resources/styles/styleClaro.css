@@ -1,0 +1,64 @@
+
+/* Estilo para modo Claro */
+
+.fondo_background{
+    -fx-background-color: white;
+}
+
+.numeros{
+    -fx-background-color: #c7c7c7;
+}
+
+.signos{
+    -fx-background-color: #47b9ff;
+}
+
+.memory{
+    -fx-background-color: #a4ff63;
+}
+
+.igual{
+    -fx-background-color: #61faff;
+}
+
+.borrar{
+    -fx-background-color: #ff6161;
+}
+
+.signo_aux{
+    -fx-background-color: #ffaa00;
+}
+
+.numeros, .signos, .signo_aux, .borrar, .igual, .memory, .pantalla, .signos_trigo {
+    -fx-background-radius: 20;
+    -fx-font-family: "arial";
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-radius:20;
+}
+.pantalla{
+    -fx-background-color: black;
+}
+
+.button:pressed {
+    -fx-background-color: lightblue;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.signos_trigo{
+    -fx-background-color: lightgrey;
+}
+
+.cbox{
+    -fx-background-radius: 20;
+    -fx-font-family: "arial";
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

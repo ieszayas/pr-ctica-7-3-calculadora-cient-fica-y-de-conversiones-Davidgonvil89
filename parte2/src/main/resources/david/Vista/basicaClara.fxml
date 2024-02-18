@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#escribir" prefHeight="370.0" prefWidth="265.0" styleClass="fondo_background" stylesheets="@../../styles/styleClaro.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="david.controlador.basicaClaraController">
+    <children>
+        <MenuBar prefHeight="25.0" prefWidth="265.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Modo">
+                    <items>
+                        <MenuItem fx:id="itemCientifica" mnemonicParsing="false" onAction="#pantallaCientifica" text="Cientifica">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icon_cal_1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edición">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaConversion" text="Conversor">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icon_canversor.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#cambiarModo" text="Tema">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icon_tema.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#pantallaInfo" text="Info">
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../images/icon_info.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <VBox alignment="CENTER" layoutX="2.0" layoutY="136.0" prefHeight="230.0" prefWidth="260.0">
+            <children>
+                <HBox prefHeight="46.0" prefWidth="260.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#memoria" prefHeight="45.0" prefWidth="62.0" styleClass="memory" stylesheets="@../../styles/styleClaro.css" text="M+">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#memoria" prefHeight="45.0" prefWidth="62.0" styleClass="memory" stylesheets="@../../styles/styleClaro.css" text="M-">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpiarTodo" prefHeight="45.0" prefWidth="62.0" styleClass="borrar" stylesheets="@../../styles/styleClaro.css" text="CE">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#operacion" prefHeight="45.0" prefWidth="62.0" styleClass="signos" stylesheets="@../../styles/styleClaro.css" text="/">
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="45.0" prefWidth="260.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="7">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="8">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="9">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#operacion" prefHeight="45.0" prefWidth="62.0" styleClass="signos" stylesheets="@../../styles/styleClaro.css" text="x">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="45.0" prefWidth="260.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="4">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="5">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="6">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#operacion" prefHeight="45.0" prefWidth="62.0" styleClass="signos" stylesheets="@../../styles/styleClaro.css" text="-">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="45.0" prefWidth="260.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="1">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="2">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="3">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#operacion" prefHeight="45.0" prefWidth="62.0" styleClass="signos" stylesheets="@../../styles/styleClaro.css" text="+">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox prefHeight="45.0" prefWidth="260.0">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#cambiar_signo" prefHeight="45.0" prefWidth="62.0" styleClass="signo_aux" stylesheets="@../../styles/styleClaro.css" text="+/-">
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsarBoton" prefHeight="45.0" prefWidth="62.0" styleClass="numeros" stylesheets="@../../styles/styleClaro.css" text="0">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ponerDecimal" prefHeight="45.0" prefWidth="62.0" styleClass="signo_aux" stylesheets="@../../styles/styleClaro.css" text=".">
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#igual" prefHeight="45.0" prefWidth="62.0" styleClass="igual" stylesheets="@../../styles/styleClaro.css" text="=">
+                            <HBox.margin>
+                                <Insets bottom="2.0" left="2.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="Arial Bold" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Label layoutX="226.0" layoutY="28.0" text="DGV" textFill="#717171">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="9.0" layoutY="29.0" text="CALCULATOR" textFill="#717171">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label fx:id="L_resultado" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="3.0" layoutY="84.0" prefHeight="36.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="o">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <Label fx:id="L_operacion" alignment="TOP_CENTER" layoutX="3.0" layoutY="57.0" prefHeight="30.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+    </children>
+</Pane>
