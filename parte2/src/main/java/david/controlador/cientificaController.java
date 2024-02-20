@@ -319,7 +319,7 @@ public class cientificaController {
             borrarPantalla();
         }
         switch (event.getCode()) {
-            case DELETE:
+            case BACK_SPACE:
                 borrarPantalla();
                 break;
             case DECIMAL:
@@ -331,7 +331,7 @@ public class cientificaController {
             case ADD:
                 operar("+");
                 break;
-            case MINUS:
+            case SUBTRACT:
                 operar("-");
                 break;
             case MULTIPLY:

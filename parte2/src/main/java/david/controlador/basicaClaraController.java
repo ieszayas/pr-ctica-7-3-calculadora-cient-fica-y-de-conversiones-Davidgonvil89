@@ -231,7 +231,7 @@ public class basicaClaraController implements Initializable {
             borrarPantalla();
         }
         switch (event.getCode()) {
-            case DELETE:
+            case BACK_SPACE:
                 borrarPantalla();
                 break;
             case DECIMAL:
@@ -243,7 +243,7 @@ public class basicaClaraController implements Initializable {
             case ADD:
                 operar("+");
                 break;
-            case MINUS:
+            case SUBTRACT:
                 operar("-");
                 break;
             case MULTIPLY:
