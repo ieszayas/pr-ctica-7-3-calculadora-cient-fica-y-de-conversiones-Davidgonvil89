@@ -22,6 +22,7 @@ public class cientificaController {
 
     private String memoria_aux = "";
     private String memoria_prin = "";
+    private String guardar_memoria;
     private String num1 = "";
     //private String num2 = "";
     private String operacion;
@@ -53,7 +54,7 @@ public class cientificaController {
 
     @FXML
     public void igual(ActionEvent actionEvent) {
-        int aux = Integer.parseInt(L_resultado.getText());
+        double aux = Double.parseDouble(L_resultado.getText());
         if (flagExponencial) {
             String res = exponencial(L_resultado.getText());
             borrarPantalla();
@@ -188,13 +189,12 @@ public class cientificaController {
 
         switch (boton) {
             case "M+":
-                memoria_prin = calculo(numero, "+");
+                guardar_memoria = L_resultado.getText();
                 break;
             case "M-":
-                memoria_prin = calculo(numero, "-");
+                L_resultado.setText(guardar_memoria);
                 break;
         }
-        mostrarPorPantalla(memoria_prin, true);
     }
 
     @FXML

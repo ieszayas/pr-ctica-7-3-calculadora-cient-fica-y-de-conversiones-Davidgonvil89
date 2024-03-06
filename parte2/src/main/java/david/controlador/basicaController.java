@@ -26,6 +26,7 @@ public class basicaController implements Initializable {
 
     private String memoria_aux = "0";
     private String memoria_prin = "0";
+    private String guardar_memoria;
     private String num1 = "";
     private String operacion;
 
@@ -187,13 +188,12 @@ public class basicaController implements Initializable {
 
         switch (boton) {
             case "M+":
-                memoria_prin = calculo(numero, "+");
+                guardar_memoria = L_resultado.getText();
                 break;
             case "M-":
-                memoria_prin = calculo(numero, "-");
+                L_resultado.setText(guardar_memoria);
                 break;
         }
-        mostrarPorPantalla(memoria_prin, true);
     }
 
     @FXML
